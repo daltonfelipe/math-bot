@@ -26,7 +26,7 @@ def dx(bot, update):
     expressao = expressao.split('/dx ')[1]
     solve = differential.dx(expressao)
     update.message.reply_text('Calcular: dx( {} )\nSolucao: {}'.format(expressao,solve))
-x
+
 def integral(bot, update):
     expressao = update.message.text
     expressao = expressao.split('/integral ')[1]
@@ -35,7 +35,7 @@ def integral(bot, update):
 
 
 updater = Updater(TOKEN)
-updater.dispatcher.add_handler(CommandHandler('hellp', help))
+updater.dispatcher.add_handler(CommandHandler('help', help))
 updater.dispatcher.add_handler(CommandHandler('math', math))
 updater.dispatcher.add_handler(CommandHandler('dx', dx))
 updater.dispatcher.add_handler(CommandHandler('integral', integral))
