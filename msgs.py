@@ -1,4 +1,6 @@
-help_msgs = """
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+help_msgs = u"""
 Ola, bem vindo ao MathBot vBeta... Utilize os seguintes comandos para utilizar corretamente o bot.
 Comandos aceitaveis
 /help - exibe este menu

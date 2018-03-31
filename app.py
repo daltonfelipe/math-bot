@@ -4,10 +4,11 @@ from telegram.ext import Updater, CommandHandler
 import differential
 from numpy import *
 import msgs
-
+import os
 help_msg = msgs.help_msgs
 
-TOKEN = ''
+TOKEN = os.environ['BOT_API_TOKEN']
+
 
 def help(bot, update):
     update.message.reply_text(help_msg)
