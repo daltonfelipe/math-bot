@@ -8,12 +8,12 @@ import os
 import mongo as db
 
 help_msg = msgs.help_msgs
-TOKEN = "593448414:AAEADHle1_dgT1S3SC9hwEdm8eDmRFw-Vr4"
+TOKEN = os.environ['BOT_API_TOKEN']
 
 
 def help(bot, update):
     update.message.reply_text(help_msg)
-    db.save(update['message'])
+    db.save(update.message)
 
 def math(bot, update):
     expressao = update.message.text
