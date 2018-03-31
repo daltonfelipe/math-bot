@@ -7,7 +7,7 @@ import msgs
 
 help_msg = msgs.help_msgs
 
-TOKEN = '593448414:AAEADHle1_dgT1S3SC9hwEdm8eDmRFw-Vr4'
+TOKEN = ''
 
 def help(bot, update):
     update.message.reply_text(help_msg)
