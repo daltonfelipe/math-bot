@@ -3,13 +3,14 @@ import logging
 from telegram.ext import Updater, CommandHandler
 import differential
 from numpy import *
+import msgs
 
+help_msg = msgs.help_msgs
 
 TOKEN = '593448414:AAEADHle1_dgT1S3SC9hwEdm8eDmRFw-Vr4'
 
-def hello(bot, update):
-    update.message.reply_text(
-        'Hello {}'.format(update.message.from_user.first_name))
+def help(bot, update):
+    update.message.reply_text(help_msg)
 
 def math(bot, update):
     expressao = update.message.text
@@ -34,7 +35,7 @@ def integral(bot, update):
     
 
 updater = Updater(TOKEN)
-updater.dispatcher.add_handler(CommandHandler('hello', hello))
+updater.dispatcher.add_handler(CommandHandler('hellp', help))
 updater.dispatcher.add_handler(CommandHandler('math', math))
 updater.dispatcher.add_handler(CommandHandler('dx', dx))
 updater.dispatcher.add_handler(CommandHandler('integral', integral))
