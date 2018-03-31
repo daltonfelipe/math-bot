@@ -5,13 +5,15 @@ import differential
 from numpy import *
 import msgs
 import os
-help_msg = msgs.help_msgs
+import mongo as db
 
-TOKEN = os.environ['BOT_API_TOKEN']
+help_msg = msgs.help_msgs
+TOKEN = "593448414:AAEADHle1_dgT1S3SC9hwEdm8eDmRFw-Vr4"
 
 
 def help(bot, update):
     update.message.reply_text(help_msg)
+    db.save(update['message'])
 
 def math(bot, update):
     expressao = update.message.text
