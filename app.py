@@ -26,13 +26,13 @@ def dx(bot, update):
     expressao = expressao.split('/dx ')[1]
     solve = differential.dx(expressao)
     update.message.reply_text('Calcular: dx( {} )\nSolucao: {}'.format(expressao,solve))
-    
+x
 def integral(bot, update):
     expressao = update.message.text
     expressao = expressao.split('/integral ')[1]
     solve = differential.integ(expressao)
     update.message.reply_text('Calcular: integral( {} )\nSolucao: {}'.format(expressao,solve))
-    
+
 
 updater = Updater(TOKEN)
 updater.dispatcher.add_handler(CommandHandler('hellp', help))
