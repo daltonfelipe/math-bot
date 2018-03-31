@@ -22,6 +22,9 @@ def math(bot, update):
         solve = 'Error - '+str(error)
     update.message.reply_text('Calcular: {}\nSolucao: {}'.format(expressao,solve))
 
+def math_lista(bot,update):
+    update.message.reply_text(msgs.math_lista)
+
 def dx(bot, update):
     expressao = update.message.text
     expressao = expressao.split('/dx ')[1]
@@ -40,6 +43,6 @@ updater.dispatcher.add_handler(CommandHandler('help', help))
 updater.dispatcher.add_handler(CommandHandler('math', math))
 updater.dispatcher.add_handler(CommandHandler('dx', dx))
 updater.dispatcher.add_handler(CommandHandler('integral', integral))
-
+updater.dispatcher.add_handler(CommandHandler('math_lista',math_lista))
 updater.start_polling()
 updater.idle()
