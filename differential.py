@@ -1,9 +1,9 @@
 from sympy import *
 from sympy import plot
+from sympy.abc import * 
 import os
 import matplotlib
 matplotlib.use('Agg')
-x,y,z = symbols('x y z')
 
 def dx(expressao):
     cmd = ('diff({})'.format(expressao)) 
