@@ -12,7 +12,10 @@ TOKEN = os.environ['BOT_API_TOKEN']
 
 def help(bot, update):
     update.message.reply_text(help_msg)
+<<<<<<< HEAD
     #db.save(update.message)
+=======
+>>>>>>> 794f405bb4df2a834de1391da363099e61d3515f
 
 def math(bot, update):
     expressao = update.message.text
@@ -40,13 +43,25 @@ def integral(bot, update):
     expressao = expressao.split('/integral ')[1]
     solve = differential.integ(expressao)
     update.message.reply_text('Calcular: integral( {} )\nSolucao: {}'.format(expressao,solve))
+<<<<<<< HEAD
     #db.save(update.message)
 
+=======
+
+def grafico(bot, update):
+    expressao = update.message.text
+    expressao = expressao.split('/integral ')[1]
+    graph = differential.create_graph(expressao,data)
+    update.message.reply_photo(photo=open(graph,'rb'))
+    differential.delete_graph(graph)
+    
+>>>>>>> 794f405bb4df2a834de1391da363099e61d3515f
 updater = Updater(TOKEN)
-updater.dispatcher.add_handler(CommandHandler('help', help))
+updater.dispatcher.add_handler(CommandHandler(['help','start'], help))
 updater.dispatcher.add_handler(CommandHandler('math', math))
 updater.dispatcher.add_handler(CommandHandler('dx', dx))
 updater.dispatcher.add_handler(CommandHandler('integral', integral))
+updater.dispatcher.add_handler(CommandHandler('graph', grafico))
 updater.dispatcher.add_handler(CommandHandler('math_lista',math_lista))
 updater.start_polling()
 updater.idle()
