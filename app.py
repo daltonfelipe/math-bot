@@ -43,9 +43,9 @@ def integral(bot, update):
 def grafico(bot, update):
     expressao = update.message.text
     expressao = expressao.split('/grafico ')[1]
-    g = differential.create_graph(expressao,update.message.from_user.username)
-    update.message.reply_photo(photo=open(g,'rb'))
-    differential.delete_graph(g)
+    differential.create_graph(expressao)
+    update.message.reply_photo(photo=open("graph.png",'rb'))
+    differential.delete_graph()
 
 updater = Updater(TOKEN)
 updater.dispatcher.add_handler(CommandHandler(['help','start'], help))

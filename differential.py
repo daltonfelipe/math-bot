@@ -20,12 +20,11 @@ def integ(expressao):
         return error
 
 
-def create_graph(expressao,user):
-    p = plot(eval(expressao),show=False,title="MathBot",legend=True)
-    file = '%s_graph.png'%user
+def create_graph(expressao):
+    p = plot(eval(expressao),show=False,axis=True,autoscale=True,aspect_ratio=(1.0,1.0),title="MathBot",legend=True)
+    file = 'graph.png'
     p.save(file)
-    return file
 
 
 def delete_graph(file):
-    os.system('rm {}'.format(file))
+    os.system('rm graph.png'.format(file))
