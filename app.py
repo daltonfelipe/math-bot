@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 from __future__ import division
 import logging
 from telegram.ext import Updater, CommandHandler
@@ -21,7 +23,7 @@ def math(bot, update):
         solve = eval(expressao)
     except Exception as error:
         solve = 'Error - '+str(error)
-    update.message.reply_text('Calcular: {}\nSolucao: {}'.format(expressao,solve))
+    update.message.reply_text('Calcular: {}\nSolução: {}'.format(expressao,solve))
 
 def math_lista(bot,update):
     update.message.reply_text(msgs.math_lista)
@@ -30,13 +32,13 @@ def dx(bot, update):
     expressao = update.message.text
     expressao = expressao.split('/dx ')[1]
     solve = differential.dx(expressao)
-    update.message.reply_text('Calcular: dx( {} )\nSolucao: {}'.format(expressao,solve))
+    update.message.reply_text('Calcular: dx( {} )\nSolução: {}'.format(expressao,solve))
 
 def integral(bot, update):
     expressao = update.message.text
     expressao = expressao.split('/integral ')[1]
     solve = differential.integ(expressao)
-    update.message.reply_text('Calcular: integral( {} )\nSolucao: {}'.format(expressao,solve))
+    update.message.reply_text(u'Calcular: integral( {} )\nSolução: {}'.format(expressao,solve))
 
 def grafico(bot, update):
     expressao = update.message.text
