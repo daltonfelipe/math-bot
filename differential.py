@@ -1,5 +1,8 @@
 from sympy import *
 from sympy import plot
+import os
+import matplotlib
+matplotlib.use('Agg')
 x,y,z = symbols('x y z')
 
 def dx(expressao):
@@ -17,14 +20,12 @@ def integ(expressao):
         return error
 
 
-def create_graph(expressao,data='math_bot'):
+def create_graph(expressao,user):
     p = plot(eval(expressao),show=False,title="MathBot",legend=True)
-    user = data['from_user'].username
-    user = 'felipe'
-    file = '{}_graph.png'.format(user)
+    file = '%s_graph.png'%user
     p.save(file)
     return file
 
 
 def delete_graph(file):
-    os.system('rm {}'.format(file))    
+    os.system('rm {}'.format(file))

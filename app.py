@@ -42,17 +42,17 @@ def integral(bot, update):
 
 def grafico(bot, update):
     expressao = update.message.text
-    expressao = expressao.split('/integral ')[1]
-    graph = differential.create_graph(expressao,data)
-    update.message.reply_photo(photo=open(graph,'rb'))
-    differential.delete_graph(graph)
+    expressao = expressao.split('/grafico ')[1]
+    g = differential.create_graph(expressao,update.message.from_user.username)
+    update.message.reply_photo(photo=open(g,'rb'))
+    differential.delete_graph(g)
 
 updater = Updater(TOKEN)
 updater.dispatcher.add_handler(CommandHandler(['help','start'], help))
 updater.dispatcher.add_handler(CommandHandler('math', math))
 updater.dispatcher.add_handler(CommandHandler('dx', dx))
 updater.dispatcher.add_handler(CommandHandler('integral', integral))
-updater.dispatcher.add_handler(CommandHandler('graph', grafico))
+updater.dispatcher.add_handler(CommandHandler('grafico', grafico))
 updater.dispatcher.add_handler(CommandHandler('math_lista',math_lista))
 updater.start_polling()
 updater.idle()
