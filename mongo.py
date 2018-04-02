@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 import os
-URI = os.environ['MONGODB_URI']
-
+#URI = os.environ['MONGODB_URI']
+URI="mongodb://dalton10:dalton10@ds131329.mlab.com:31329/math-bot"
 client = MongoClient(URI)
 db = client.get_default_database()
 msg = db['messages']
