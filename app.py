@@ -54,7 +54,7 @@ def grafico(bot, update):
 def grafico3d(bot, update):
     expressao = update.message.text
     expressao = expressao.split('/grafico3d ')[1]
-    differential.create_graph(expressao)
+    differential.create_graph3d(expressao)
     update.message.reply_photo(photo=open("graph.png",'rb'))
     differential.delete_graph()
 

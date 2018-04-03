@@ -26,7 +26,6 @@ def create_graph(expressao):
     file = 'graph.png'
     p.save(file)
 
-
 def create_graph3d(expressao):
     p = plot3d(eval(expressao),show=False,title="MathBot")
     file = 'graph.png'
