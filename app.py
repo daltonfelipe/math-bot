@@ -7,11 +7,10 @@ import differential
 from numpy import *
 import msgs
 import os
-import mongo as db
+#import mongo as db
 
 help_msg = msgs.help_msgs
 TOKEN = os.environ['BOT_API_TOKEN']
-
 
 def help(bot, update):
     update.message.reply_text(help_msg)
@@ -25,8 +24,10 @@ def math(bot, update):
         solve = 'Error - '+str(error)
     update.message.reply_text('Calcular: {}\nSolução: {}'.format(expressao,solve))
 
+
 def math_lista(bot,update):
     update.message.reply_text(msgs.math_lista)
+    db.save(update.message)
 
 def dx(bot, update):
     expressao = update.message.text
@@ -40,19 +41,28 @@ def integral(bot, update):
     solve = differential.integ(expressao)
     update.message.reply_text(u'Calcular: integral( {} )\nSolução: {}'.format(expressao,solve))
 
+
 def grafico(bot, update):
     expressao = update.message.text
-    expressao = expressao.split('/integral ')[1]
-    graph = differential.create_graph(expressao,data)
-    update.message.reply_photo(photo=open(graph,'rb'))
-    differential.delete_graph(graph)
-    
+    expressao = expressao.split('/grafico ')[1]
+    differential.create_graph(expressao)
+    update.message.reply_photo(photo=open("graph.png",'rb'))
+    differential.delete_graph()
+
+def grafico3d(bot, update):
+    expressao = update.message.text
+    expressao = expressao.split('/grafico3d ')[1]
+    differential.create_graph(expressao)
+    update.message.reply_photo(photo=open("graph.png",'rb'))
+    differential.delete_graph()
+
 updater = Updater(TOKEN)
 updater.dispatcher.add_handler(CommandHandler(['help','start'], help))
 updater.dispatcher.add_handler(CommandHandler('math', math))
 updater.dispatcher.add_handler(CommandHandler('dx', dx))
 updater.dispatcher.add_handler(CommandHandler('integral', integral))
-updater.dispatcher.add_handler(CommandHandler('graph', grafico))
+updater.dispatcher.add_handler(CommandHandler('grafico', grafico))
+updater.dispatcher.add_handler(CommandHandler('grafico3d', grafico3d))
 updater.dispatcher.add_handler(CommandHandler('math_lista',math_lista))
 updater.start_polling()
 updater.idle()

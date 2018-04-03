@@ -1,6 +1,10 @@
 from sympy import *
 from sympy import plot
-x,y,z = symbols('x y z')
+from sympy.plotting import plot3d
+from sympy.abc import * 
+import os
+import matplotlib
+matplotlib.use('Agg')
 
 def dx(expressao):
     cmd = ('diff({})'.format(expressao)) 
@@ -17,14 +21,16 @@ def integ(expressao):
         return error
 
 
-def create_graph(expressao,data='math_bot'):
+def create_graph(expressao):
     p = plot(eval(expressao),show=False,title="MathBot",legend=True)
-    user = data['from_user'].username
-    user = 'felipe'
-    file = '{}_graph.png'.format(user)
+    file = 'graph.png'
     p.save(file)
-    return file
 
+
+def create_graph3d(expressao):
+    p = plot3d(eval(expressao),show=False,title="MathBot")
+    file = 'graph.png'
+    p.save(file)
 
 def delete_graph(file):
-    os.system('rm {}'.format(file))    
+    os.system('rm graph.png'.format(file))
