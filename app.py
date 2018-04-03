@@ -25,6 +25,7 @@ def math(bot, update):
     update.message.reply_text('Calcular: {}\nSolução: {}'.format(expressao,solve))
 
 
+
 def math_lista(bot,update):
     update.message.reply_text(msgs.math_lista)
     db.save(update.message)
@@ -40,6 +41,7 @@ def integral(bot, update):
     expressao = expressao.split('/integral ')[1]
     solve = differential.integ(expressao)
     update.message.reply_text(u'Calcular: integral( {} )\nSolução: {}'.format(expressao,solve))
+
 
 
 def grafico(bot, update):
