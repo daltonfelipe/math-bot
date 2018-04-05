@@ -17,10 +17,10 @@ Comandos aceitáveis
 /dx - Calcula a derivada de uma uma função.
 >>> Ex.: /dx x**2,x - (derivada de x**2 em relação a x)
 
-/grafico - Gera um grafico bidimensional com a função desejada.
+/plot - Gera um gráfico bidimensional com a função desejada.
 >>> Ex.: /grafico x**2
 
-/grafico3d - Gera um grafico tridimensional com a função desejada.
+/plot3d - Gera um gráfico tridimensional com a função desejada.
 >>> Ex.: /grafico3d x**2 + y**2
 
 *  Os comandos aceitos são das libs numpy e sympy do  python2.7.

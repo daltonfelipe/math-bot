@@ -44,16 +44,16 @@ def integral(bot, update):
 
 
 
-def grafico(bot, update):
+def plot(bot, update):
     expressao = update.message.text
-    expressao = expressao.split('/grafico ')[1]
+    expressao = expressao.split('/plot ')[1]
     differential.create_graph(expressao)
     update.message.reply_photo(photo=open("graph.png",'rb'))
     differential.delete_graph()
 
-def grafico3d(bot, update):
+def plot3d(bot, update):
     expressao = update.message.text
-    expressao = expressao.split('/grafico3d ')[1]
+    expressao = expressao.split('/plot3d ')[1]
     differential.create_graph3d(expressao)
     update.message.reply_photo(photo=open("graph.png",'rb'))
     differential.delete_graph()
@@ -63,8 +63,8 @@ updater.dispatcher.add_handler(CommandHandler(['help','start'], help))
 updater.dispatcher.add_handler(CommandHandler('math', math))
 updater.dispatcher.add_handler(CommandHandler('dx', dx))
 updater.dispatcher.add_handler(CommandHandler('integral', integral))
-updater.dispatcher.add_handler(CommandHandler('grafico', grafico))
-updater.dispatcher.add_handler(CommandHandler('grafico3d', grafico3d))
+updater.dispatcher.add_handler(CommandHandler('plot', plot))
+updater.dispatcher.add_handler(CommandHandler('plot3d', plot3d))
 updater.dispatcher.add_handler(CommandHandler('math_lista',math_lista))
 updater.start_polling()
 updater.idle()
