@@ -20,7 +20,6 @@ def integ(expressao):
     except Exception as error:
         return error
 
-
 def create_graph(expressao):
     p = plot(eval(expressao),show=False,title="MathBot",legend=True)
     file = 'graph.png'
