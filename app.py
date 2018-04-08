@@ -68,8 +68,8 @@ def plot3d(bot, update):
 def exemplos(bot, update):
     exemplos_keyboard = [
         [telegram.KeyboardButton('/math cos(pi/2)'),telegram.KeyboardButton('/math mean([1,2,3])')],
-        [telegram.KeyboardButton('/dx x**2,x'),telegram.KeyboardButton('/integral x*2,x')],
-        [telegram.KeyboardButton('/plot x**2'),telegram.KeyboardButton('/plot3d x**2+y**2')]
+        [telegram.KeyboardButton('/dx pow(x,2),x'),telegram.KeyboardButton('/integral x*2,x')],
+        [telegram.KeyboardButton('/plot pow(x,2)'),telegram.KeyboardButton('/plot3d pow(x,2)+pow(y,2)')]
         ]
     reply_kb_markup = telegram.ReplyKeyboardMarkup(exemplos_keyboard,resize_keyboard=True,one_time_keyboard=True)
     bot.send_message(chat_id=update.message.chat_id,text=help_msg,reply_markup=reply_kb_markup)
