@@ -59,7 +59,7 @@ def plot3d(bot, update):
 
 def exemplos(bot, update):
     exemplos_keyboard = [
-        [telegram.KeyboardButton('/math cos(pi/2)'),telegram.KeyboardButton('/math mean([1,2,3])')],
+        [telegram.KeyboardButton('/math sin(pi/2)'),telegram.KeyboardButton('/math mean([1,2,3])')],
         [telegram.KeyboardButton('/dx pow(x,2),x'),telegram.KeyboardButton('/integral x*2,x')],
         [telegram.KeyboardButton('/plot pow(x,2)'),telegram.KeyboardButton('/plot3d pow(x,2)+pow(y,2)')]
         ]
