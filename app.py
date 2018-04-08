@@ -3,7 +3,7 @@
 from __future__ import division
 import telegram
 import logging
-from telegram.ext import Updater, CommandHandler
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import differential
 from numpy import *
 import msgs
@@ -21,6 +21,10 @@ def start(bot, update):
 
 def help(bot, update):
     update.message.reply_text(help_msg)
+
+def unknown(bot, update):
+    msg = "Desculpe, não entendi! Precisa de ajuda? /help"
+    update.message.reply_text(msg)
 
 def math(bot, update):
     expressao = update.message.text
@@ -65,6 +69,7 @@ def plot3d(bot, update):
 updater = Updater(TOKEN)
 updater.dispatcher.add_handler(CommandHandler('start', start))
 updater.dispatcher.add_handler(CommandHandler('help', help))
+updater.dispatcher.add_handler(MessageHandler([Filters.text], unknown))
 updater.dispatcher.add_handler(CommandHandler('math', math))
 updater.dispatcher.add_handler(CommandHandler('dx', dx))
 updater.dispatcher.add_handler(CommandHandler('integral', integral))
