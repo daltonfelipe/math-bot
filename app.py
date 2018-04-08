@@ -5,9 +5,9 @@ import telegram
 import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import differential
-from numpy import *
 import msgs
 import os
+import simple_math
 help_msg = msgs.help_msgs
 TOKEN = os.environ['BOT_API_TOKEN']
 
@@ -22,7 +22,7 @@ def math(bot, update):
     expressao = update.message.text
     expressao = expressao.split('/math ')[1]
     try:
-        solve = eval(expressao)
+        solve = simple_math.math(expressao)
     except Exception as error:
         solve = 'Error - '+str(error)
     update.message.reply_text('Calcular: {}\nSolução: {}'.format(expressao,solve))
