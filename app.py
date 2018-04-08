@@ -17,7 +17,7 @@ def start(bot, update):
         [telegram.KeyboardButton('/commands')]
         ]
     reply_kb_markup = telegram.ReplyKeyboardMarkup(main_menu_keyboard,resize_keyboard=True,one_time_keyboard=True)
-    bot.send_message(chat_id=update.message.chat_id,text=msg,reply_markup=reply_kb_markup)
+    bot.send_message(chat_id=update.message.chat_id,text=msg_help,reply_markup=reply_kb_markup)
 
 def help(bot, update):
     update.message.reply_text(help_msg)
@@ -69,7 +69,7 @@ def plot3d(bot, update):
 updater = Updater(TOKEN)
 updater.dispatcher.add_handler(CommandHandler('start', start))
 updater.dispatcher.add_handler(CommandHandler('help', help))
-updater.dispatcher.add_handler(MessageHandler([Filters.text], unknown))
+updater.dispatcher.add_handler(MessageHandler([Filters.text & Filters.command], unknown))
 updater.dispatcher.add_handler(CommandHandler('math', math))
 updater.dispatcher.add_handler(CommandHandler('dx', dx))
 updater.dispatcher.add_handler(CommandHandler('integral', integral))
