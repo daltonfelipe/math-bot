@@ -65,6 +65,14 @@ def plot3d(bot, update):
     update.message.reply_photo(photo=open("graph.png",'rb'))
     differential.delete_graph()
 
+def exemplos(bot, update):
+    exemplos_keyboard = [
+        [telegram.KeyboardButton('/math cos(pi/2)'),telegram.KeyboardButton('/math mean([1,2,3])')],
+        [telegram.KeyboardButton('/dx x**2,x'),telegram.KeyboardButton('/integral x*2,x')],
+        [telegram.KeyboardButton('/plot x**2'),telegram.KeyboardButton('/plot3d x**2+y**2')]
+        ]
+    reply_kb_markup = telegram.ReplyKeyboardMarkup(exemplos_keyboard,resize_keyboard=True,one_time_keyboard=True)
+    bot.send_message(chat_id=update.message.chat_id,text=help_msg,reply_markup=reply_kb_markup)
 
 updater = Updater(TOKEN)
 updater.dispatcher.add_handler(CommandHandler('start', start))
@@ -76,5 +84,6 @@ updater.dispatcher.add_handler(CommandHandler('integral', integral))
 updater.dispatcher.add_handler(CommandHandler('plot', plot))
 updater.dispatcher.add_handler(CommandHandler('plot3d', plot3d))
 updater.dispatcher.add_handler(CommandHandler('math_lista',math_lista))
+updater.dispatcher.add_handler(CommandHandler('exemplos', exemplos))
 updater.start_polling()
 updater.idle()
