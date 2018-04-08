@@ -11,14 +11,6 @@ import os
 help_msg = msgs.help_msgs
 TOKEN = os.environ['BOT_API_TOKEN']
 
-def start(bot, update):    
-    main_menu_keyboard = [
-        [telegram.KeyboardButton('/help')],
-        [telegram.KeyboardButton('/commands')]
-        ]
-    reply_kb_markup = telegram.ReplyKeyboardMarkup(main_menu_keyboard,resize_keyboard=True,one_time_keyboard=True)
-    bot.send_message(chat_id=update.message.chat_id,text=msg_help,reply_markup=reply_kb_markup)
-
 def help(bot, update):
     update.message.reply_text(help_msg)
 
@@ -75,8 +67,7 @@ def exemplos(bot, update):
     bot.send_message(chat_id=update.message.chat_id,text=help_msg,reply_markup=reply_kb_markup)
 
 updater = Updater(TOKEN)
-updater.dispatcher.add_handler(CommandHandler('start', start))
-updater.dispatcher.add_handler(CommandHandler('help', help))
+updater.dispatcher.add_handler(CommandHandler(['help','start'], help))
 updater.dispatcher.add_handler(MessageHandler([Filters.text], unknown))
 updater.dispatcher.add_handler(CommandHandler('math', math))
 updater.dispatcher.add_handler(CommandHandler('dx', dx))
