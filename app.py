@@ -69,7 +69,7 @@ def plot3d(bot, update):
 updater = Updater(TOKEN)
 updater.dispatcher.add_handler(CommandHandler('start', start))
 updater.dispatcher.add_handler(CommandHandler('help', help))
-updater.dispatcher.add_handler(MessageHandler([Filters.text | Filters.command], unknown))
+updater.dispatcher.add_handler(MessageHandler([Filters.text], unknown))
 updater.dispatcher.add_handler(CommandHandler('math', math))
 updater.dispatcher.add_handler(CommandHandler('dx', dx))
 updater.dispatcher.add_handler(CommandHandler('integral', integral))
