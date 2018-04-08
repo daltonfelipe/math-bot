@@ -1,7 +1,7 @@
 from sympy import *
 from sympy import plot
 from sympy.plotting import plot3d
-from sympy.abc import * 
+from sympy.abc import a,b,c,d,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,x,z,w 
 import os
 import matplotlib
 matplotlib.use('Agg')
