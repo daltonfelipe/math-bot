@@ -63,8 +63,8 @@ def exemplos(bot, update):
         [telegram.InlineKeyboardButton('/dx pow(x,2),x'),telegram.InlineKeyboardButton('/integral x*2,x')],
         [telegram.InlineKeyboardButton('/plot pow(x,2)'),telegram.InlineKeyboardButton('/plot3d pow(x,2)+pow(y,2)')]
         ]
-    reply_kb_markup = telegram.ReplyKeyboardMarkup(exemplos_keyboard,resize_keyboard=True,one_time_keyboard=True)
-    bot.send_message(chat_id=update.message.chat_id,text=help_msg,reply_markup=reply_kb_markup)
+    reply_Ikb_markup = telegram.InlineKeyboardMarkup(exemplos_keyboard,resize_keyboard=True,one_time_keyboard=True)
+    bot.send_message(chat_id=update.message.chat_id,text=help_msg,reply_markup=reply_Ikb_markup)
 
 updater = Updater(TOKEN)
 updater.dispatcher.add_handler(CommandHandler(['help','start'], help))
