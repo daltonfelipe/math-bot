@@ -15,7 +15,7 @@ def help(bot, update):
     update.message.reply_text(help_msg)
 
 def unknown(bot, update):
-    msg = "Desculpe, não entendi! Precisa de ajuda? /help"
+    msg = "Desculpe, não entendi!\nPrecisa de ajuda? /help\nOu /exemplos para ver alguns exemplos."
     update.message.reply_text(msg)
 
 def math(bot, update):
