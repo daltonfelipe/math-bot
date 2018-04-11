@@ -32,3 +32,6 @@ def create_graph3d(expressao):
 
 def delete_graph(file):
     os.system('rm graph.png'.format(file))
+
+def zeros(expressao):
+    pass
